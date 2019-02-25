@@ -7,9 +7,10 @@ publish_mode: editorial_workflow
 media_folder: static/images/uploads
 public_folder: /images/uploads
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  
+  - name: posts
+    label: Blog Posts
+    folder: posts
     create: true
     slug: '{{year}}-{{slug}}.md'
     fields:
@@ -29,3 +30,32 @@ collections:
       - label: Body
         name: body
         widget: markdown
+  - name: series
+    label: Sermon Series
+    folder: series
+    create: true
+    slug: '{{slug}}.md'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+  - name: sermons
+    label: Sermons
+    folder: sermons
+    create: true
+    slug: '{{series}}-{{slug}}.md'
+    fields:
+      - label: Sermon Series
+        name: series
+        widget: relation
+        collection: series
+        searchFields: ['title']
+        valueField: title
+      - label: Title
+        name: title
+        widget: string
+      - label: Audio File
+        name: audio
+        widget: file
+      - label: Description
+        name: body
