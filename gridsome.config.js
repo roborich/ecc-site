@@ -22,5 +22,13 @@ module.exports = {
         route: 'sermons/:series/:slug',
       },
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'series/*.md',
+        typeName: 'Series',
+        route: 'sermons/:title',
+      },
+    },
   ]
 }
