@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Share {{this.$static.metaData.siteUrl}}</div>
+    <div class="title">Share</div>
     <a v-for="service of services" :key="service.link" :href="service.link">
       <font-awesome-layers :key="service.color" class="social-icon fa-2x">
         <fa-icon icon="circle" :style="{color: service.color}" fixed-width/>
@@ -63,8 +63,9 @@ export default {
   color: $header-blue;
   font-size: 24px;
   font-weight: 700;
-  // margin-bottom: 0.25em;
 }
+  // margin-bottom: 0.25em;
+
 .social-icon {
   padding-right: 0.2em;
   cursor: pointer;
