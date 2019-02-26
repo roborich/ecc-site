@@ -1,11 +1,26 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { 
+  faFacebookF, 
+  faTwitter,
+  faInstagram,
+  faPinterestP, 
+} from "@fortawesome/free-brands-svg-icons";
 import {
   faLongArrowAltLeft,
   faHeadphones,
   faCircle,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
-const icons = [faLongArrowAltLeft, faHeadphones, faCircle, faFacebookF, faInstagram];
+const icons = [
+  faLongArrowAltLeft, 
+  faHeadphones, 
+  faCircle, 
+  faEnvelope,
+  faFacebookF, 
+  faInstagram,
+  faTwitter,
+  faPinterestP,
+];
 
 export default () => library.add(...icons);

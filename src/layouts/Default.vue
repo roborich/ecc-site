@@ -2,7 +2,13 @@
   <div class="layout">
     <header class="header">
       <g-link to="/">
-        <g-image width="317" height="45" src="../assets/images/logo.png"/>
+        <g-image
+          width="634"
+          height="90"
+          quality="100"
+          class="header__logo"
+          src="../assets/images/logo.png"
+        />
       </g-link>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -24,11 +30,11 @@ query {
 <script>
 import DefaultFooter from "../components/DefaultFooter.vue";
 export default {
-  components: { DefaultFooter },
+  components: { DefaultFooter }
 };
 </script>
 <style lang="scss">
-@import '../assets/scss/base.scss';
+@import "../assets/scss/base.scss";
 
 body {
   font-family: Proxima-Nova, "serif";
@@ -41,12 +47,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+  line-height: 1;
+  height: 75px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+     0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  &__logo {
+    height: 45px;
+    width: 317px;
+  }
 }
 
 .nav__link {
   margin-left: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #999;
 }
 footer {
   background: $footer-blue;

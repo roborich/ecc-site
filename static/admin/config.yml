@@ -14,48 +14,29 @@ collections:
     create: true
     slug: '{{year}}-{{slug}}.md'
     fields:
-      - label: Layout
-        name: layout
-        widget: hidden
-        default: blog
-      - label: Title
-        name: title
-        widget: string
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - label: Featured Image
-        name: hero
-        widget: image
-      - label: Body
-        name: body
-        widget: markdown
+      - {label: Layout, name: layout, widget: hidden, default: blog}
+      - {label: Title,  name: title, widget: string}  
+      - {label: Publish Date, name: date, widget: datetime}
+      - {label: Featured Image, name: hero, widget: image}
+      - {label: Body, name: body, widget: markdown}
   - name: series
     label: Sermon Series
     folder: series
     create: true
     slug: '{{slug}}.md'
     fields:
-      - label: Title
-        name: title
-        widget: string
+      - {label: Title, name: title, widget: string}      
+      - {label: Description, name: description, widget: string}
   - name: sermons
     label: Sermons
     folder: sermons
     create: true
     slug: '{{series}}-{{slug}}.md'
     fields:
-      - label: Sermon Series
-        name: series
-        widget: relation
-        collection: series
-        searchFields: ['title']
-        valueField: title
-      - label: Title
-        name: title
-        widget: string
-      - label: Audio File
-        name: audio
-        widget: file
-      - label: Description
-        name: body
+      - {label: Sermon Series, name: series, widget: relation, collection: series, searchFields: ['title'], valueField: title}
+      - {label: Title, name: title, widget: string}
+      - {label: Scripture, name: scripture, widget: string}
+      - {label: Audio File, name: audio, widget: file} 
+      - {label: Description, name: body}
+      - {label: Tags, name: tags, widget: list}
+  

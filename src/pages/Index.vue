@@ -54,9 +54,11 @@ export default {
   background-position: center center;
   background-size: cover;
   min-height: 599px;
+  padding: 32px;
 
   a {
     margin: 20px;
+    display: inline-block;
     border: 2px solid #fff;
     color: #fff;
     font-weight: 600;
@@ -76,3 +78,4 @@ export default {
   margin-right: 1rem;
 }
 </style>
+  
