@@ -140,7 +140,7 @@ export default {
       margin-bottom: 1em;
     }
     &__social {
-      flex: 0 1 80px;
+      flex: 0 1 100px;
       margin-bottom: 1em;
       a {
         color: $ecc-blue;
