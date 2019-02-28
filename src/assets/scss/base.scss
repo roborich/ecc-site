@@ -1,1 +1,8 @@
-@import './base/typography.scss';
+@import "./library.scss";
+@import "./base/typography.scss";
+
+.ecc-content {
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 0 32px;
+}

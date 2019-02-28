@@ -12,7 +12,7 @@
       </g-link>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
+        <g-link class="nav__link" to="/sermons">Sermons</g-link>
       </nav>
     </header>
     <slot/>
@@ -41,6 +41,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  margin-top: 75px;
 }
 
 .header {
@@ -51,7 +52,11 @@ body {
   height: 75px;
   padding: 16px;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  top: 0;
+  background: white;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 2px 2px 0 rgba(0, 0, 0, 0.14),
      0 1px 5px 0 rgba(0, 0, 0, 0.12);

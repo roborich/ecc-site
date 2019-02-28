@@ -1,9 +1,7 @@
 <template>
   <Layout>
-    <div class="hero">
-      <div>Sermons</div>
-    </div>
-    <div class="body">
+    <Hero height="180">Sermon</Hero>
+    <div class="body ecc-content">
       <h1>
         {{$page.sermon.title}}
         <span>{{$page.sermon.scripture}}</span>
@@ -28,10 +26,11 @@ query Sermon ($path: String!) {
 </page-query>
 <script>
 import Share from "../components/Share";
-import Tags from '../components/Tags';
+import Tags from "../components/Tags";
+import Hero from "../components/Hero";
 export default {
   name: "SermonTemplate",
-  components: { Share, Tags },
+  components: { Share, Tags, Hero }
 };
 </script>
 <style lang="scss" scoped>
@@ -49,25 +48,8 @@ h1 {
     }
   }
 }
-.hero {
-  background-color: $header-blue;
-  background-image: linear-gradient(30deg, rgba(black, 0), rgba(black, 0.8));
-  padding: 16px 32px;
-  color: white;
-  font-family: $proxima-nova;
-  font-weight: 900;
-  font-size: 36px;
-  div {
-    padding: 32px 0;
-    max-width: 800px;
-    margin: auto;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
-  }
-}
 .body {
   padding: 32px;
-  max-width: 800px;
-  margin: 0 auto;
   line-height: 1.8em;
 }
 </style>
