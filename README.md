@@ -1,12 +1,10 @@
-# Default starter for Gridsome
-`
-### 1. Install Gridsome CLI tool if you don't have
+<img src="src/assets/images/logo.png" width="400">
 
-`npm install --global @gridsome/cli`
+> Gridsome site for ECC
 
-### 2. Create a Gridsome project
-
-1. `gridsome create my-gridsome-site` to install default starter </li>
-2. `cd my-gridsome-site` to open folder
-3. `gridsome develop` to start local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+### Contributing
+- install Node.js
+- if on windows, figure out how to get git
+- clone this repo
+- navigate a terminal into this project directory and run `npm i`
+- then run `npm develop` to start a development server.

@@ -1,8 +1,11 @@
 <template>
   <Layout>
-    <Hero height="180">Sermon</Hero>
-    <div class="body ecc-content">
-      <h1>
+    <Hero>
+      Sermons
+      <img slot="image" src="../assets/images/sermons.jpg"/>
+    </Hero>
+    <div class="ecc-content ecc-content__body">
+      <h1 class="ecc-content__h1">
         {{$page.sermon.title}}
         <span>{{$page.sermon.scripture}}</span>
       </h1>
@@ -36,7 +39,6 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/library.scss";
 h1 {
-  color: $ecc-blue;
   span {
     font-style: italic;
     opacity: 0.9;
@@ -47,9 +49,5 @@ h1 {
       content: ")";
     }
   }
-}
-.body {
-  padding: 32px;
-  line-height: 1.8em;
 }
 </style>
