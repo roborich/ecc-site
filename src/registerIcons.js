@@ -10,6 +10,7 @@ import {
   faHeadphones,
   faCircle,
   faEnvelope,
+  faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons = [
@@ -17,6 +18,7 @@ const icons = [
   faHeadphones, 
   faCircle, 
   faEnvelope,
+  faCalendarDay,
   faFacebookF, 
   faInstagram,
   faTwitter,

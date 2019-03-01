@@ -10,12 +10,13 @@ collections:
   
   - name: posts
     label: Blog Posts
+    label_singular: Blog Post
     folder: content/posts
     create: true
     slug: '{{year}}-{{slug}}'
     fields:
-      - {label: Layout, name: layout, widget: hidden, default: blog}
       - {label: Title,  name: title, widget: string}  
+      - {label: Layout, name: layout, widget: hidden, default: blog}
       - {label: Publish Date, name: date, widget: datetime}
       - {label: Featured Image, name: hero, widget: image}
       - {label: Body, name: body, widget: markdown}
@@ -27,9 +28,12 @@ collections:
     fields:
       - {label: Title, name: title, widget: string}      
       - {label: Description, name: description, widget: string}
+      - {label: Start Year, name: start, widget: date, format: YYYY}
+      - {label: End Year, name: end, widget: date, format: YYYY}
       - {label: Image, name: image, widget: image}
   - name: sermons
     label: Sermons
+    label_singular: Sermon
     folder: content/sermons
     create: true
     slug: '{{series}}-{{slug}}'
@@ -43,7 +47,9 @@ collections:
       - {label: Description, name: body}
       - {label: Tags, name: tags, widget: list}
   - name: people
+    identifier_field: name
     label: People
+    label_singular: Person
     folder: content/people
     create: true
     slug: '{{name}}'
