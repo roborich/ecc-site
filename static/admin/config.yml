@@ -28,7 +28,7 @@ collections:
     fields:
       - {label: Title, name: title, widget: string}      
       - {label: Description, name: description, widget: string}
-      - {label: End Date, name: end, widget: date, format: YYYY, hint: Used for sorting}
+      - {label: End Date, name: end, widget: date, hint: Used for sorting}
       - {label: Image, name: image, widget: image}
   - name: sermons
     label: Sermons
