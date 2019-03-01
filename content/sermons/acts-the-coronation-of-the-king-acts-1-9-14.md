@@ -2,6 +2,8 @@
 series: Acts
 title: The Coronation of the King
 scripture: 'Acts 1:9-14'
+speaker: Mitch Bedzyk
+date: 2019-02-10T13:29:40.722Z
 audio: /images/uploads/20190210-message.mp3
 tags:
   - sovereignty
