@@ -10,7 +10,7 @@ collections:
   
   - name: posts
     label: Blog Posts
-    folder: posts
+    folder: content/posts
     create: true
     slug: '{{year}}-{{slug}}.md'
     fields:
@@ -21,7 +21,7 @@ collections:
       - {label: Body, name: body, widget: markdown}
   - name: series
     label: Sermon Series
-    folder: series
+    folder: content/series
     create: true
     slug: '{{slug}}.md'
     fields:
@@ -30,7 +30,7 @@ collections:
       - {label: Image, name: image, widget: image}
   - name: sermons
     label: Sermons
-    folder: sermons
+    folder: content/sermons
     create: true
     slug: '{{series}}-{{slug}}.md'
     fields:
