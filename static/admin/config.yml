@@ -12,7 +12,7 @@ collections:
     label: Blog Posts
     folder: content/posts
     create: true
-    slug: '{{year}}-{{slug}}.md'
+    slug: '{{year}}-{{slug}}'
     fields:
       - {label: Layout, name: layout, widget: hidden, default: blog}
       - {label: Title,  name: title, widget: string}  
@@ -23,7 +23,7 @@ collections:
     label: Sermon Series
     folder: content/series
     create: true
-    slug: '{{slug}}.md'
+    slug: '{{slug}}'
     fields:
       - {label: Title, name: title, widget: string}      
       - {label: Description, name: description, widget: string}
@@ -32,14 +32,20 @@ collections:
     label: Sermons
     folder: content/sermons
     create: true
-    slug: '{{series}}-{{slug}}.md'
+    slug: '{{series}}-{{slug}}'
     fields:
       - {label: Sermon Series, name: series, widget: relation, collection: series, searchFields: ['title'], valueField: title}
       - {label: Title, name: title, widget: string}
       - {label: Scripture, name: scripture, widget: string}
-      - {label: Speaker, name: speaker, widget: string}
+      - {label: Speaker, name: speaker, widget: relation, collection: people, searchFields: ['name'], valueField: title}
       - {label: Date, name: date, widget: date}
       - {label: Audio File, name: audio, widget: file} 
       - {label: Description, name: body}
       - {label: Tags, name: tags, widget: list}
-  
+  - name: people
+    label: People
+    folder: content/people
+    create: true
+    slug: '{{name}}'
+    fields:
+      - {label: Name, name: name}
