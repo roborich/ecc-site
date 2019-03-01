@@ -17,7 +17,7 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'sermons/*.md',
+        path: 'content/sermons/*.md',
         typeName: 'Sermon',
         route: 'sermons/:series/:slug',
       },
@@ -25,7 +25,7 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'series/*.md',
+        path: 'content/series/*.md',
         typeName: 'Series',
         route: 'sermons/:title',
       },
