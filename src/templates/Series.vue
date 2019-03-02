@@ -7,7 +7,7 @@
     <div class="ecc-content ecc-content__body">
       <h1 class="ecc-content__h1">{{ $page.series.title }}</h1>
       <div v-for="sermon of $page.sermon.edges" :key="sermon.node.title">
-        <g-link :to="sermon.node.path">{{sermon.node.title}}</g-link>
+        <g-link class="ecc-content__h1" :to="sermon.node.path">{{sermon.node.title}}</g-link>
         <div>{{ sermon.node.content | exerpt}}</div>
       </div>
     </div>
