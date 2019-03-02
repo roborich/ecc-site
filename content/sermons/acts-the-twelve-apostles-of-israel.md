@@ -3,7 +3,7 @@ series: Acts
 title: The Twelve Apostles of Israel
 scripture: 'Acts 1:15-26'
 speaker: Matt Bedzyk
-date: 2019-03-02T19:11:39.525Z
+date: 2019-02-17T19:11:39.525Z
 audio: /images/uploads/20190217-message.mp3
 tags:
   - the Word
