@@ -16,7 +16,7 @@
 </template>
 <page-query>
 query Series {
-    allSeries {
+    allSeries(sortBy: "end") {
         edges {
             node {
                 title

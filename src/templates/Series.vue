@@ -2,15 +2,13 @@
   <Layout>
     <Hero>
       Sermons
-      <img slot="image" src="../assets/images/sermons.jpg"/>
+      <img slot="image" src="../assets/images/sermons.jpg">
     </Hero>
     <div class="ecc-content ecc-content__body">
-      <h1 class="ecc-content__h1">
-        {{ $page.series.title }}
-      </h1>
+      <h1 class="ecc-content__h1">{{ $page.series.title }}</h1>
       <div v-for="sermon of $page.sermon.edges" :key="sermon.node.title">
         <g-link :to="sermon.node.path">{{sermon.node.title}}</g-link>
-        
+        <div>{{ sermon.node.content | exerpt}}</div>
       </div>
     </div>
   </Layout>
@@ -26,6 +24,7 @@ query Sermons($id: String!, $title: String!) {
                 title
                 path
                 excerpt
+                content
             }
         }
     }
@@ -35,6 +34,15 @@ query Sermons($id: String!, $title: String!) {
 import Hero from "../components/Hero";
 export default {
   name: "SermonTemplate",
-  components: { Hero }
+  components: { Hero },
+  filters: {
+    exerpt: content =>
+      content
+        .replace(/<[^>]*>/g, "")
+        .split(" ")
+        .slice(0, 45)
+        .join(" ")
+        .concat('...')
+  }
 };
 </script>
