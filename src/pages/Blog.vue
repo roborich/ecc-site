@@ -47,14 +47,21 @@ export default {
 
   &__image {
     position: relative;
-    height: 230px;
+    height: 0;
+    padding-top: 56.25%;
     overflow: hidden;
     z-index: -1;
     margin-bottom: -20px;
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow 0.5s ease;
+
     img {
       transform: scale(1);
       transition: transform 0.5s ease;
       width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 
@@ -76,6 +83,8 @@ export default {
   &__body {
     background: white;
     margin: 0 16px;
+    box-shadow: 0 0 0 transparent;
+    transition: box-shadow 0.5s ease;
   }
 
   &__summary {
@@ -97,11 +106,14 @@ export default {
     padding: 0 16px;
   }
 
-  &:hover &__image img {
-    transform: scale(1.1);
+  &:hover &__image {
+    box-shadow: 0 20px 25px -7px rgba(0, 0, 0, 0.2);
+    img {
+      transform: scale(1.1);
+    }
   }
   &:hover &__body {
-    box-shadow: 0 -5px 4px rgba(black, 0.25);
+    box-shadow: 0 -3px 4px rgba(black, 0.25);
   }
 }
 </style>
