@@ -17,8 +17,11 @@ collections:
     fields:
       - {label: Title,  name: title, widget: string}  
       - {label: Layout, name: layout, widget: hidden, default: blog}
+      - {label: Author, name: author, widget: relation, collection: people, searchFields: ['name'], valueField: name}
       - {label: Publish Date, name: date, widget: datetime}
-      - {label: Featured Image, name: hero, widget: image}
+      - {label: Category, name: category, widget: string}
+      - {label: Featured Image, name: image, widget: image}
+      - {label: Summary, name: summary, widget: string}
       - {label: Body, name: body, widget: markdown}
   - name: series
     label: Sermon Series

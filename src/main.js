@@ -2,6 +2,7 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 import DefaultLayout from "~/layouts/Default.vue";
 import registerIcons from "./registerIcons";
+import Hero from './components/Hero';
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 registerIcons();
@@ -10,6 +11,7 @@ export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component("FaIcon", FontAwesomeIcon);
   Vue.component("Layout", DefaultLayout);
+  Vue.component('Hero', Hero);
   head.link.push({
     rel: "stylesheet",
     href: "https://use.typekit.net/rqj4hkm.css"

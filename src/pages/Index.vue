@@ -30,16 +30,16 @@
       <div>Community Groups</div>
     </div>
     <div class="ecc-index__acts-section">
-      <div class="ecc-content">
+      <div class="">
         <h2>Current Sermon Series: Acts</h2>
-        <div class="ecc-flexbox">
-          <div class="ecc-index__act-side">
+        <div class="ecc-index__acts-flex">
+          <div class="ecc-index__acts-flex__side">
             <p>The book of Acts is the story of God's kingdom under the saving rule of Jesus Christ. Though ascended to heaven after his death and resurrection, Luke records how Jesus continued to build his church as the gospel began to be proclaimed to the nations. This book then is all about the acts of the risen Lord Jesus, accomplished through the witness of his people in the power of the Holy Spirit, in fulfillment of God's purposes for the world. Acts shows us that our God is faithful to his covenant promises and will continue to strengthen his church today by his Spirit through the Word of his grace.</p>
             <g-link to="/about">Learn More</g-link>
             <g-link to="/about">Listen</g-link>
           </div>
-          <div class="ecc-index__act-side">
-            <g-image src="../assets/images/acts-series.jpg" width="300"/>
+          <div class="ecc-index__acts-flex__side">
+            <g-image src="../assets/images/acts-series.jpg"/>
           </div>
         </div>
       </div>
@@ -113,6 +113,7 @@ export default {
       line-height: 1.5;
     }
   }
+  $act-content-width: 970px;
   &__acts-section {
     background: $acts-red;
     color: white;
@@ -121,9 +122,15 @@ export default {
       color: white;
     }
   }
-  &__acts-side {
-    flex: 0 0 $content-width / 2;
-
+  &__acts-flex {
+    display: flex;
+    flex-wrap: wrap;
+    &__side {
+      flex: 1 0 $content-width / 2;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 

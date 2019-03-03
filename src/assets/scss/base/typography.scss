@@ -2,6 +2,7 @@
 
 p {
     font-family: $paragraph-font;
+    //todo this color should only be applied to body paragraphs
     color: $paragraph-color;
     line-height: 1.9;
 }

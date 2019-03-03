@@ -2,7 +2,10 @@
 layout: blog
 title: 'Spiritual Gifts: What are Words of Wisdom and Knowledge?'
 date: 2019-02-20T10:00:00.000Z
-hero: /images/uploads/words-of-knowledge-spiritual-gifts.jpg
+author: Mitch Bedzyk
+summary: Tom Schreiner presents a compelling and biblical case for understanding words of wisdom and knowledge to be referring to the gift of teaching.
+category: Bible Study
+image: /images/uploads/words-of-knowledge-spiritual-gifts.jpg
 ---
 In 1 Corinthians 12:8 Paul mentions two spiritual gifts that have consistently puzzled commentators and readers alike: words of wisdom and words of knowledge. According to some, these gifts are the spontaneous ability to discern the sins, thoughts, or details of someone’s life. On this understanding, Christians must practice getting their “words” right by “stepping out in faith” and “risk” getting their words of knowledge wrong. Unfortunately, this rather novel view, aside from lacking any convincing biblical support, turns these gifts into nothing more than cold readings (cf. Deut 18:9-14).
 
