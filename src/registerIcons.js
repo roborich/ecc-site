@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faLongArrowAltLeft,
+  faLongArrowAltRight,
   faHeadphones,
   faCircle,
   faEnvelope,
@@ -14,7 +15,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons = [
-  faLongArrowAltLeft, 
+  faLongArrowAltLeft,
+  faLongArrowAltRight,
   faHeadphones, 
   faCircle, 
   faEnvelope,

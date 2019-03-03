@@ -1,18 +1,16 @@
 <template>
   <Layout>
-    <Hero>
+    <Hero backgroundImage="/images/sermons.jpg">
       Sermons
-      <img slot="image" src="../assets/images/sermons.jpg">
     </Hero>
     <div class="ecc-content ecc-content__body">
       <h1 class="ecc-content__h1">
         {{$page.sermon.title}}
         <span>{{$page.sermon.scripture}}</span>
       </h1>
-      <p class="sermon-info">
-        <fa-icon icon="calendar-day"></fa-icon>
-        {{ $page.sermon.date | formatDate}} | Pastor {{$page.sermon.speaker}}
-      </p>
+      <div class="sermon-info">
+       Delivered on {{ $page.sermon.date | formatDate}} by Pastor {{$page.sermon.speaker}}
+      </div>
       <audio :src="$page.sermon.audio" controls/>
       <div v-html="$page.sermon.content"/>
       <Tags :tags="$page.sermon.tags"/>
@@ -47,6 +45,7 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/library.scss";
 h1 {
+  margin-bottom: 0.25em;
   span {
     font-style: italic;
     opacity: 0.9;
@@ -65,6 +64,7 @@ audio {
 
 .sermon-info {
   color: $gray;
-  font-size: 12px;
+  font-size: 14px;
+  margin-bottom: 1em;
 }
 </style>

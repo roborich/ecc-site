@@ -1,8 +1,7 @@
 <template>
   <Layout>
-    <Hero>
+    <Hero backgroundImage="/images/sermons.jpg">
       Sermons
-      <img slot="image" src="../../assets/images/sermons.jpg">
     </Hero>
     <div class="ecc-content ecc-content__body">
       <h1 class="ecc-content__h1">Sermon Series</h1>

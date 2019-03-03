@@ -2,4 +2,14 @@
 
 p {
     font-family: $paragraph-font;
+    color: $paragraph-color;
+    line-height: 1.9;
+}
+
+.ecc-text-center {
+    text-align: center;
+}
+
+.ecc-bold {
+    font-weight: bold;
 }
