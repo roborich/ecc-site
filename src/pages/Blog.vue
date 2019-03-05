@@ -1,14 +1,14 @@
 <template>
   <Layout>
     <Hero>Blog</Hero>
-    <div class="ecc-content ecc-content__body">
+    <div class="ecc-content ecc-content__body ecc-blog-grid">
       <div class="blog-tile" v-for="post in $page.allPost.posts" :key="post.node.title">
-        <div class="blog-tile__image">
+        <g-link class="blog-tile__image">
           <img :src="post.node.image">
-        </div>
+        </g-link>
         <div class="blog-tile__body">
           <span class="blog-tile__category">{{post.node.category}}</span>
-          <div class="blog-tile__title">{{post.node.title}}</div>
+          <g-link :to="post.node.path" class="blog-tile__title">{{post.node.title}}</g-link>
           <div class="blog-tile__summary">{{post.node.summary}}</div>
           <div class="blog-tile__date">Posted on {{ post.node.date | formatDate}}</div>
         </div>
@@ -41,18 +41,17 @@ export default {
 <style lang="scss">
 @import "../assets/scss/library";
 .blog-tile {
-  width: 350px;
-
   text-align: center;
 
   &__image {
+    display: block;
     position: relative;
     height: 0;
     padding-top: 56.25%;
     overflow: hidden;
     z-index: -1;
     margin-bottom: -20px;
-    box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 40px 5px -16px rgba(black, 0.15);
     transition: box-shadow 0.5s ease;
 
     img {
@@ -93,7 +92,7 @@ export default {
     color: $paragraph-color;
   }
   &__date {
-    padding: 0 16px;
+    padding: 0 16px 16px;
     font-family: $tisa;
     color: $paragraph-color;
     opacity: 0.8;
@@ -101,19 +100,30 @@ export default {
   }
   &__title {
     color: $header-blue;
+    text-decoration: none;
+    display: block;
     font-weight: 700;
     font-size: 24px;
     padding: 0 16px;
   }
 
   &:hover &__image {
-    box-shadow: 0 20px 25px -7px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 20px 25px -7px rgba(0, 0, 0, 0.1);
     img {
       transform: scale(1.1);
     }
   }
   &:hover &__body {
-    box-shadow: 0 -3px 4px rgba(black, 0.25);
+    box-shadow: 0 1px 2px rgba(black, 0.25);
+  }
+}
+
+.ecc-blog-grid {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: $content-width) {
+    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -44,13 +44,13 @@
         </div>
       </div>
     </div>
-    <div>
+    <Hero backgroundImage="/images/Elmira-Christian-Center-Gospel-Centered-Church-bl.jpg">
       <h2>Join us Sundays at 10:30am</h2>
       <p>235 East Miller St. Elmira, NY 14904</p>
       <g-link to="/about">Directions</g-link>
       <g-link to="/about">Our Liturgy</g-link>
       <g-link to="/about">Sunday Classes</g-link>
-    </div>
+    </Hero>
   </Layout>
 </template>
 
