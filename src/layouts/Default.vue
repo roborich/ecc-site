@@ -10,11 +10,8 @@
           src="../assets/images/logo.png"
         />
       </g-link>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/sermons">Sermons</g-link>
-        <g-link class="nav__link" to="/blog">Blog</g-link>
-      </nav>
+      <nav class="nav"></nav>
+      <Navigation/>
     </header>
     <slot/>
     <default-footer/>
@@ -29,16 +26,17 @@ query {
 }
 </static-query>
 <script>
-import DefaultFooter from "../components/DefaultFooter.vue";
+import DefaultFooter from '../components/DefaultFooter.vue';
+import Navigation from '../components/Navigation';
 export default {
-  components: { DefaultFooter }
+  components: { DefaultFooter, Navigation },
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/base.scss";
+@import '../assets/scss/base.scss';
 
 body {
-  font-family: Proxima-Nova, "serif";
+  font-family: Proxima-Nova, 'serif';
   margin: 0;
   padding: 0;
   line-height: 1.5;
@@ -64,6 +62,10 @@ body {
   &__logo {
     height: 45px;
     width: 317px;
+    @media (max-width: 700px) {
+      transform: scale(0.8);
+      transform-origin: 0 50%;
+    }
   }
 }
 

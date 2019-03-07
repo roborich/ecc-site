@@ -1,9 +1,6 @@
 <template>
   <Layout>
-    <Hero
-      height="600"
-      background-image="/images/elmira-christian-center_gospel-centered-church.jpg"
-    >
+    <Hero height="600" class="ecc-index__hero">
       <div class="ecc-index__hero-content">
         <h1>
           <div>Making Disciples.</div>
@@ -30,7 +27,7 @@
       <div>Community Groups</div>
     </div>
     <div class="ecc-index__acts-section">
-      <div class="">
+      <div class>
         <h2>Current Sermon Series: Acts</h2>
         <div class="ecc-index__acts-flex">
           <div class="ecc-index__acts-flex__side">
@@ -55,18 +52,21 @@
 </template>
 
 <script>
-import Hero from "../components/Hero";
+import Hero from '../components/Hero';
 export default {
   metaInfo: {
-    title: "Hello, world!"
+    title: 'Hello, world!',
   },
-  components: { Hero }
+  components: { Hero },
 };
 </script>
 
 <style lang="scss">
-@import "../assets/scss/library.scss";
+@import '../assets/scss/library.scss';
 .ecc-index {
+  &__hero {
+    background-image: url('../assets/images/elmira-christian-center_gospel-centered-church.jpg');
+  }
   &__hero-content {
     h1 {
       line-height: 1.2;

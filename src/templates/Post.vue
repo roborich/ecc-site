@@ -13,7 +13,7 @@
       <div class="post-info">
         <fa-icon icon="archive"/>
         Categories: {{$page.post.category}}
-      </div> -->
+      </div>-->
       <div class="post-info">Posted on {{$page.post.date | formatDate}} by {{$page.post.author}}</div>
       <g-image :src="$page.post.image"/>
       <div v-html="$page.post.content"/>
@@ -33,12 +33,12 @@ query Post ($path: String!) {
 }
 </page-query>
 <script>
-import { formatDate } from "../lib/filters";
+import { formatDate } from '../lib/filters';
 export default { filters: { formatDate } };
 </script>
 
 <style lang="scss">
-@import "../assets/scss/library";
+@import '../assets/scss/library';
 .post-info {
   display: block;
   color: #999;
@@ -48,17 +48,21 @@ export default { filters: { formatDate } };
   margin-bottom: 1em;
 }
 .ecc-content__body {
+  
   h1 {
     text-align: center;
   }
+  
   img {
     max-width: 100%;
   }
+  
   blockquote {
     margin: 0;
     padding: 1em 0 1em 2em;
     border-left: solid 3px $ecc-blue;
   }
+
   h1,
   h2,
   h3 {

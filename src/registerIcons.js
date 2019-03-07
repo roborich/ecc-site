@@ -1,31 +1,33 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { 
-  faFacebookF, 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faFacebookF,
   faTwitter,
   faInstagram,
-  faPinterestP, 
-} from "@fortawesome/free-brands-svg-icons";
+  faPinterestP,
+} from '@fortawesome/free-brands-svg-icons';
 import {
   faLongArrowAltLeft,
   faLongArrowAltRight,
   faHeadphones,
   faCircle,
   faUser,
+  faBars,
   faArchive,
   faEnvelope,
   faCalendarDay,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 const icons = [
   faLongArrowAltLeft,
   faLongArrowAltRight,
-  faHeadphones, 
+  faHeadphones,
   faCircle,
   faUser,
+  faBars,
   faArchive,
   faEnvelope,
   faCalendarDay,
-  faFacebookF, 
+  faFacebookF,
   faInstagram,
   faTwitter,
   faPinterestP,
