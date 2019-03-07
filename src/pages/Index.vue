@@ -64,7 +64,7 @@ export default {
 <style lang="scss">
 @import '../assets/scss/library.scss';
 .ecc-index {
-  &__hero {
+  &__hero.ecc-content-hero {
     background-image: url('../assets/images/elmira-christian-center_gospel-centered-church.jpg');
   }
   &__hero-content {
