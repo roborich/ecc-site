@@ -74,22 +74,25 @@
   </footer>
 </template>
 <script>
-import { FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
+import { FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 export default {
   data() {
     return {
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     };
   },
   components: {
-    FontAwesomeLayers
-  }
+    FontAwesomeLayers,
+  },
 };
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/library.scss";
+@import '../assets/scss/library.scss';
 .ecc-footer {
   font-size: 14px;
+  p {
+    color: $footer-foreground; // todo fix p's so that I don't have to do this.
+  }
   &__info {
     background: $footer-blue;
     color: $footer-foreground;
@@ -110,7 +113,7 @@ export default {
     font-weight: 700;
     margin: 0.25em 0;
     &:after {
-      content: ":";
+      content: ':';
     }
   }
   &__column {
@@ -147,6 +150,40 @@ export default {
         margin: 0.25em;
       }
     }
+  }
+
+  input {
+    border: none;
+    border-bottom: solid 2px #ddd;
+    outline: none;
+    padding: 0.5em;
+    margin: 16px 0;
+    background: rgba(white, 0.1);
+    color: white;
+  }
+  ::placeholder {
+    color: white;
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+    color: white;
+  }
+
+  ::-ms-input-placeholder {
+    color: white;
+  }
+  button {
+    background: $ecc-blue;
+    border: none;
+    outline: none;
+    color: white;
+    // font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5em 1em;
+    line-height: 1;
+    width: 100%;
   }
 }
 </style>

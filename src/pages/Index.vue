@@ -141,9 +141,15 @@ export default {
     }
   }
   &__grow-boxes {
-    // padding: 96px 40px;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 1080px;
+    margin: 0 auto;
+    @media (min-width: $content-width) {
+      padding: 96px 16px;
+      display: flex;
+      font-size: 30px;
+    }
+    font-size: 5vw;
+    // flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
@@ -151,7 +157,11 @@ export default {
     flex: 1 0 $content-width / 3;
     background: $ecc-blue;
     color: white;
+    display: block;
     text-align: center;
+    @media (max-width: $content-width) {
+      margin: 16px;
+    }
     &__inner {
       height: 0;
       padding-top: 56.25%;
@@ -173,7 +183,7 @@ export default {
         width: 100%;
         transform: translateY(-50%);
         text-align: center;
-        font-size: 2.5vw;
+
         text-decoration: none;
         font-weight: 600;
         color: white;
@@ -189,7 +199,7 @@ export default {
   &__acts-section {
     background: $acts-red;
     color: white;
-    padding: 96px 32px;
+    padding: 96px 32px 64px;
     h2 {
       font-size: 32px;
       text-align: center;
@@ -207,6 +217,7 @@ export default {
 
     &__side {
       flex: 1 0 $content-width / 2;
+      margin-bottom: 32px;
       img {
         width: 100%;
       }
