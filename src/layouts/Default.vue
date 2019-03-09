@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div :class="baseClass" :style="scrollVar">
     <header class="header">
       <g-link to="/">
         <g-image
@@ -26,10 +26,33 @@ query {
 }
 </static-query>
 <script>
+import throttle from 'lodash/throttle';
 import DefaultFooter from '../components/DefaultFooter.vue';
 import Navigation from '../components/Navigation';
 export default {
   components: { DefaultFooter, Navigation },
+  data() {
+    return {
+      scrollY: window.scrollY,
+    };
+  },
+  computed: {
+    scrollVar() {
+      return `--scrollY: ${this.scrollY}px`;
+    },
+    baseClass() {
+      return {
+        'ecc-layout': true,
+        'ecc-scroll-0': this.scrollY === 0,
+      };
+    },
+  },
+  created() {
+    const setScrollY = throttle(() => {
+      this.scrollY = window.scrollY;
+    }, 16);
+    window.addEventListener('scroll', setScrollY);
+  },
 };
 </script>
 <style lang="scss">
@@ -55,9 +78,10 @@ body {
   z-index: 4;
   width: 100%;
   top: 0;
-  background: white;
+  background-color: white;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
   &__logo {
     height: 45px;
@@ -68,7 +92,11 @@ body {
     }
   }
 }
-
+.ecc-scroll-0 .header {
+  // background-color: rgba(white, 0);
+  box-shadow: 0 0 0 0 rgba(black, 0), 0 0 0 0 rgba(black, 0),
+    0 0 0 0 rgba(black, 0);
+}
 .nav__link {
   margin-left: 20px;
   text-transform: uppercase;

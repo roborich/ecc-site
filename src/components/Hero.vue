@@ -13,26 +13,47 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 200
+      default: 200,
     },
     backgroundImage: {
-      type: String
-    }
+      type: String,
+    },
+    parallax: {
+      type: Number,
+    },
+  },
+  data() {
+    return {
+      offsetY: 0,
+    };
   },
   computed: {
     style() {
-      return {
-        backgroundImage: this.backgroundImage === undefined 
-          ? undefined
-          : `url('${this.backgroundImage}')`,
-        minHeight: `${this.height}px`
+      const css = {
+        '--offsetY': `${this.offsetY}px`,
+        backgroundImage:
+          this.backgroundImage === undefined
+            ? undefined
+            : `url('${this.backgroundImage}')`,
+        minHeight: `${this.height}px`,
       };
-    }
-  }
+      if (this.parallax !== undefined && false) {
+        // todo only implement on large screens
+        css.backgroundPosition = `50% calc(50% + calc(calc(var(--scrollY) - var(--offsetY)) * ${
+          this.parallax
+        }))`;
+      }
+      return css;
+    },
+  },
+  mounted() {
+    console.log('ok?');
+    this.offsetY = this.$el.offsetTop || 0;
+  },
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/library";
+@import '../assets/scss/library';
 
 // todo: change class name
 .ecc-content-hero {
@@ -48,12 +69,13 @@ export default {
   background-color: $header-blue;
   background-image: linear-gradient(30deg, rgba(black, 0), rgba(black, 0.8));
   background-size: cover;
+
   background-position: 50% 50%;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 
   &__centered {
     position: relative;

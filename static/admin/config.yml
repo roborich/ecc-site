@@ -7,7 +7,6 @@ publish_mode: editorial_workflow
 media_folder: static/images/uploads
 public_folder: /images/uploads
 collections:
-  
   - name: posts
     label: Blog Posts
     label_singular: Blog Post
@@ -15,24 +14,32 @@ collections:
     create: true
     slug: '{{year}}-{{slug}}'
     fields:
-      - {label: Title,  name: title, widget: string}  
-      - {label: Layout, name: layout, widget: hidden, default: blog}
-      - {label: Author, name: author, widget: relation, collection: people, searchFields: ['name'], valueField: name}
-      - {label: Publish Date, name: date, widget: datetime}
-      - {label: Category, name: category, widget: string}
-      - {label: Featured Image, name: image, widget: image}
-      - {label: Summary, name: summary, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - { label: Title, name: title, widget: string }
+      - { label: Layout, name: layout, widget: hidden, default: blog }
+      - {
+          label: Author,
+          name: author,
+          widget: relation,
+          collection: people,
+          searchFields: ['name'],
+          valueField: name,
+        }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Category, name: category, widget: string }
+      - { label: Featured Image, name: image, widget: image }
+      - { label: Summary, name: summary, widget: string }
+      - { label: Body, name: body, widget: markdown }
+      - { label: Tags, name: tags, widget: list }
   - name: series
     label: Sermon Series
     folder: content/series
     create: true
     slug: '{{slug}}'
     fields:
-      - {label: Title, name: title, widget: string}      
-      - {label: Description, name: description, widget: string}
-      - {label: End Date, name: end, widget: date, hint: Used for sorting}
-      - {label: Image, name: image, widget: image}
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: End Date, name: end, widget: date, hint: Used for sorting }
+      - { label: Image, name: image, widget: image }
   - name: sermons
     label: Sermons
     label_singular: Sermon
@@ -40,14 +47,28 @@ collections:
     create: true
     slug: '{{series}}-{{slug}}'
     fields:
-      - {label: Sermon Series, name: series, widget: relation, collection: series, searchFields: ['title'], valueField: title}
-      - {label: Title, name: title, widget: string}
-      - {label: Scripture, name: scripture, widget: string}
-      - {label: Speaker, name: speaker, widget: relation, collection: people, searchFields: ['name'], valueField: name}
-      - {label: Date, name: date, widget: date}
-      - {label: Audio File, name: audio, widget: file} 
-      - {label: Description, name: body}
-      - {label: Tags, name: tags, widget: list}
+      - {
+          label: Sermon Series,
+          name: series,
+          widget: relation,
+          collection: series,
+          searchFields: ['title'],
+          valueField: title,
+        }
+      - { label: Title, name: title, widget: string }
+      - { label: Scripture, name: scripture, widget: string }
+      - {
+          label: Speaker,
+          name: speaker,
+          widget: relation,
+          collection: people,
+          searchFields: ['name'],
+          valueField: name,
+        }
+      - { label: Date, name: date, widget: date }
+      - { label: Audio File, name: audio, widget: file }
+      - { label: Description, name: body }
+      - { label: Tags, name: tags, widget: list }
   - name: people
     identifier_field: name
     label: People
@@ -56,4 +77,4 @@ collections:
     create: true
     slug: '{{name}}'
     fields:
-      - {label: Name, name: name}
+      - { label: Name, name: name }

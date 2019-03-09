@@ -9,18 +9,22 @@ summary: >-
   Paul’s farewell address to the Ephesian elders provides us with a biblical
   model of pastoral ministry that consists of both demonstration and
   declaration.
+tags:
+  - pastoral ministry
+  - paul
 ---
+
 Paul’s farewell address to the Ephesian elders (Acts 20:17-38) takes place at the end of his third missionary journey. On his way back to Jerusalem, Paul summons them while at Miletus in order that he might encourage them in the faith and charge them to continue the work of caring for the church of God. As Alexander Strauch has noted, this speech is a virtual pastoral manual. Paul begins by first reminding the elders of his time spent among them, how he ministered the gospel to them. Yet before he begins his actual commands to the elders in verse 28, his opening remarks provide us with a model of ministry worthy of emulation. Here, we learn that the pastoral ministry consists of both demonstration and declaration of the gospel.
 
 ## Pastoral Ministry as Demonstration
 
 > And when they came to him, he said to them: “You yourselves know how I lived among you the whole time from the first day that I set foot in Asia, serving the Lord with all humility and with tears and with trials that happened to me through the plots of the Jews” (Acts 20:18-19).
 
-Before Paul mentions the message which he taught them, he reminds them of the message that he lived before them. Here, Paul calls them to remember his practice—his character, his conduct, his work, his way of life. First, Paul’s practice was _public_.  The Ephesian church could all testify to how Paul lived because they all knew him intimately! He had lived among them, in the same environment as the church. He was their brother, their friend, their pastor, and their fellow worker in the gospel. He didn’t live in isolation and wasn’t unapproachable. Like a good shepherd, he [smelled like his sheep](https://www.amazon.com/Church-Elders-Shepherd-Building-Churches/dp/1433540878); he had dirt on his coat and fleece on his sleeves.
+Before Paul mentions the message which he taught them, he reminds them of the message that he lived before them. Here, Paul calls them to remember his practice—his character, his conduct, his work, his way of life. First, Paul’s practice was _public_. The Ephesian church could all testify to how Paul lived because they all knew him intimately! He had lived among them, in the same environment as the church. He was their brother, their friend, their pastor, and their fellow worker in the gospel. He didn’t live in isolation and wasn’t unapproachable. Like a good shepherd, he [smelled like his sheep](https://www.amazon.com/Church-Elders-Shepherd-Building-Churches/dp/1433540878); he had dirt on his coat and fleece on his sleeves.
 
 Second, Paul’s practice was _above reproach_. He was confident that they could reflect on any portion of the three years that he had spent with them, from the very moment he stepped foot onto Asian soil, and his life would hold up to their scrutiny. They had witnessed firsthand his pastoral ministry, his godly character, and his courage in the face of persecution. But how exactly had Paul lived and ministered among them? This he goes on to clarify in verse 19.
 
-Paul ministered as a _slave of Christ_.  The word “serving” here means to act or conduct oneself as a slave, as one who is in total service to another. It is to be characterized by undivided allegiance to one’s master. Paul was controlled by the love of Christ and gratefully labored in the service of his good and gracious King.
+Paul ministered as a _slave of Christ_. The word “serving” here means to act or conduct oneself as a slave, as one who is in total service to another. It is to be characterized by undivided allegiance to one’s master. Paul was controlled by the love of Christ and gratefully labored in the service of his good and gracious King.
 
 Paul also ministered with _all humility_. This is the same word found in Philippians 2:3-4, where Paul calls the church, based on the gospel of Jesus Christ, to “do nothing from selfish ambition or conceit, but in humility count others more significant than yourselves. Let each of you look not only to his own interests, but also to the interests of others.” This is humility which takes the form of unselfishness and self-forgetfulness; it’s not thinking less of yourself but thinking of yourself less!
 
@@ -48,6 +52,6 @@ And fifth, Paul’s preaching was all about _repentance toward God and faith in 
 
 Paul’s model of pastoral ministry as both demonstration and declaration is a recurring theme throughout the New Testament. In fact, this model of ministry also applies to the sheep as well. However, Paul’s emphasis is particularly found in his instruction given to pastors and leaders of the church. Paul commands Timothy: “Keep a close watch on yourself and on the teaching. Persist in this, for by so doing you will save both yourself and your hearers” (1 Tim. 4:12-16). Pastors must pay careful attention to both their practice and their preaching to “care for the church of God, which he obtained with his own blood” (Acts 20:28). This is our calling as ministers of the gospel of Jesus Christ.
 
-Think about Paul’s model of pastoral ministry. Does this biblical model line up with what we look for and expect from a pastor? Has our obsession with celebrity culture turned our pastors into unapproachable shepherds that don’t smell like, or even know, their own sheep? Do we look for our pastors to be life-coaches that teach us through inspiring TED talks how to have our best lives now? Do our pastors *boldly* preach the *whole* counsel of God on Sundays and throughout the week in discipleship? Could our pastors deliver a similar farewell address to their congregations?
+Think about Paul’s model of pastoral ministry. Does this biblical model line up with what we look for and expect from a pastor? Has our obsession with celebrity culture turned our pastors into unapproachable shepherds that don’t smell like, or even know, their own sheep? Do we look for our pastors to be life-coaches that teach us through inspiring TED talks how to have our best lives now? Do our pastors _boldly_ preach the _whole_ counsel of God on Sundays and throughout the week in discipleship? Could our pastors deliver a similar farewell address to their congregations?
 
 Let’s (re)consider the model of pastoral ministry God has outlined for us in Scripture. For this is the model that God has promised to bless and work through.

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">Share</div>
-    <a v-for="service of services" :key="service.link" :href="service.link">
+    <a v-for="service of services" :key="service.link" :href="service.link" target="_blank">
       <font-awesome-layers :key="service.color" class="social-icon fa-2x">
         <fa-icon icon="circle" :style="{color: service.color}" fixed-width/>
         <fa-icon :icon="service.icon" transform="shrink-6" fixed-width :style="{color: 'white'}"/>
@@ -17,54 +17,100 @@ query MetaData {
 }
 </static-query>
 <script>
-import { FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
-const FACEBOOK_BLUE = "#3B5998";
-const TWITTER_BLUE = "#1da1f2";
-const PINTEREST_RED = "#bd081c";
+import camelCase from 'lodash/camelCase';
+import { FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
+const FACEBOOK_BLUE = '#3B5998';
+const TWITTER_BLUE = '#1da1f2';
+const PINTEREST_RED = '#bd081c';
 
 export default {
-  name: "Share",
+  name: 'Share',
+  props: {
+    title: {
+      typs: String,
+    },
+    snippet: {
+      type: String,
+    },
+    tags: {
+      type: Array,
+    },
+  },
   computed: {
-    currentPage(){
+    currentPage() {
       return `${this.$static.metaData.siteUrl}${this.$route.fullPath}`;
     },
-    services(){
+    facebookLink() {
+      return [
+        'https://www.facebook.com/sharer/sharer.php',
+        `?u=${this.currentPage}`,
+        this.title !== undefined ? `&t=${encodeURI(this.title)}` : '',
+      ].join('');
+    },
+    twitterLink() {
+      return [
+        'https://twitter.com/intent/tweet',
+        `?url=${this.currentPage}`,
+        this.title !== undefined ? `&text=${encodeURI(this.title + '\n')}` : '',
+        this.tags !== undefined
+          ? `&hashtags=${encodeURI(this.tags.map(camelCase).join(','))}`
+          : '',
+      ].join('');
+    },
+
+    pinterestLink() {
+      return [
+        'https://pinterest.com/pin/create/button/',
+        `?url=${this.currentPage}`,
+        this.snippet !== undefined
+          ? `&description=${encodeURI(this.snippet)}`
+          : '',
+      ].join('');
+    },
+    emailLink() {
+      return [
+        'mailto:',
+        this.title !== undefined ? `?subject=${this.title}` : '',
+        `&body=${this.snippet || ''} ${this.currentPage}`,
+      ].join('');
+    },
+    services() {
       return [
         {
-          icon: ["fab", "facebook-f"],
+          icon: ['fab', 'facebook-f'],
           color: FACEBOOK_BLUE,
-          link: ""
+          link: this.facebookLink,
         },
         {
-          icon: ["fab", "twitter"],
+          icon: ['fab', 'twitter'],
           color: TWITTER_BLUE,
-          link: ""
+          link: this.twitterLink,
         },
         {
-          icon: ["fab", "pinterest-p"],
+          icon: ['fab', 'pinterest-p'],
           color: PINTEREST_RED,
-          link: ""
+          link: this.pinterestLink,
         },
         {
-          icon: "envelope",
-          color: "#999",
-          link: this.currentPage,
-        }
+          icon: 'envelope',
+          color: '#999',
+          link: this.emailLink,
+        },
       ];
     },
   },
-  components: { FontAwesomeLayers }
+  components: { FontAwesomeLayers },
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/library";
+@import '../assets/scss/library';
 
 .title {
   color: $header-blue;
   font-size: 24px;
   font-weight: 700;
 }
-  // margin-bottom: 0.25em;
+// margin-bottom: 0.25em;
 
 .social-icon {
   padding-right: 0.2em;

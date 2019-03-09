@@ -5,8 +5,23 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
+module.exports = function(api) {
   api.loadSource(store => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api
-  })
-}
+
+    // just trying this out
+    const books = store.addContentType('Book');
+    [
+      'Bible',
+      'The Greate Divorce',
+      'The Institutes of the Christian Religion',
+    ].forEach(book =>
+      books.addNode({
+        title: book,
+        fields: {
+          bookName: book,
+        },
+      }),
+    );
+  });
+};

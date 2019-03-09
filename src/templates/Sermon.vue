@@ -1,20 +1,18 @@
 <template>
   <Layout>
-    <Hero backgroundImage="/images/sermons.jpg">
-      Sermons
-    </Hero>
+    <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15">Sermons</Hero>
     <div class="ecc-content ecc-content__body">
       <h1 class="ecc-content__h1">
         {{$page.sermon.title}}
         <span>{{$page.sermon.scripture}}</span>
       </h1>
-      <div class="sermon-info">
-       Delivered on {{ $page.sermon.date | formatDate}} by Pastor {{$page.sermon.speaker}}
-      </div>
+      <div
+        class="sermon-info"
+      >Delivered on {{ $page.sermon.date | formatDate}} by Pastor {{$page.sermon.speaker}}</div>
       <audio :src="$page.sermon.audio" controls/>
       <div v-html="$page.sermon.content"/>
       <Tags :tags="$page.sermon.tags"/>
-      <Share/>
+      <Share :title="$page.sermon.title" :tags="$page.sermon.tags" :snippet="$page.sermon.content"/>
     </div>
   </Layout>
 </template>
@@ -32,28 +30,28 @@ query Sermon ($path: String!) {
 }
 </page-query>
 <script>
-import Share from "../components/Share";
-import Tags from "../components/Tags";
-import Hero from "../components/Hero";
-import { formatDate } from "../lib/filters";
+import Share from '../components/Share';
+import Tags from '../components/Tags';
+import Hero from '../components/Hero';
+import { formatDate } from '../lib/filters';
 export default {
-  name: "SermonTemplate",
+  name: 'SermonTemplate',
   components: { Share, Tags, Hero },
-  filters: { formatDate }
+  filters: { formatDate },
 };
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/library.scss";
+@import '../assets/scss/library.scss';
 h1 {
   margin-bottom: 0.25em;
   span {
     font-style: italic;
     opacity: 0.9;
     &:before {
-      content: "(";
+      content: '(';
     }
     &:after {
-      content: ")";
+      content: ')';
     }
   }
 }

@@ -17,6 +17,8 @@
       <div class="post-info">Posted on {{$page.post.date | formatDate}} by {{$page.post.author}}</div>
       <g-image :src="$page.post.image"/>
       <div v-html="$page.post.content"/>
+      <Tags :tags="$page.post.tags"/>
+      <Share :title="$page.post.title" :snippet="$page.post.summary" :tags="$page.post.tags"/>
     </div>
   </Layout>
 </template>
@@ -29,12 +31,19 @@ query Post ($path: String!) {
         content
         author
         category
+        tags
+        summary
     }
 }
 </page-query>
 <script>
 import { formatDate } from '../lib/filters';
-export default { filters: { formatDate } };
+import Tags from '../components/Tags';
+import Share from '../components/Share';
+export default {
+  filters: { formatDate },
+  components: { Tags, Share },
+};
 </script>
 
 <style lang="scss">
@@ -48,15 +57,14 @@ export default { filters: { formatDate } };
   margin-bottom: 1em;
 }
 .ecc-content__body {
-  
   h1 {
     text-align: center;
   }
-  
+
   img {
     max-width: 100%;
   }
-  
+
   blockquote {
     margin: 0;
     padding: 1em 0 1em 2em;
