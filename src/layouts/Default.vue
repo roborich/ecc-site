@@ -33,7 +33,7 @@ export default {
   components: { DefaultFooter, Navigation },
   data() {
     return {
-      scrollY: window.scrollY,
+      scrollY: 0,
     };
   },
   computed: {
@@ -47,7 +47,8 @@ export default {
       };
     },
   },
-  created() {
+  mounted() {
+    this.scrollY = window.scrollY;
     const setScrollY = throttle(() => {
       this.scrollY = window.scrollY;
     }, 16);
