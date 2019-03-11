@@ -9,7 +9,7 @@
         <g-link to="/about" class="ecc-index__white-border-button">New Here?
           <fa-icon icon="long-arrow-alt-right"/>
         </g-link>
-        <g-link to="/about" class="ecc-index__white-border-button">The Gospel
+        <g-link to="/the-gospel" class="ecc-index__white-border-button">The Gospel
           <fa-icon icon="long-arrow-alt-right"/>
         </g-link>
         <g-link to="/about" class="ecc-index__white-border-button">What We Believe
@@ -112,7 +112,7 @@ export default {
       color: black;
     }
   }
-  &__hero.ecc-content-hero {
+  &__hero.ecc-hero {
     background-image: url('../assets/images/elmira-christian-center_gospel-centered-church.jpg');
   }
   &__hero-content {
@@ -126,8 +126,8 @@ export default {
   }
   &__welcome {
     text-align: center;
-    padding: 96px $content-gutter;
-    max-width: $content-width;
+    padding: 96px $container-gutter;
+    max-width: $container-width;
     margin: 0 auto;
 
     h2 {
@@ -143,7 +143,7 @@ export default {
   &__grow-boxes {
     max-width: 1080px;
     margin: 0 auto;
-    @media (min-width: $content-width) {
+    @media (min-width: $container-width) {
       padding: 96px 16px;
       display: flex;
       font-size: 30px;
@@ -154,12 +154,12 @@ export default {
     align-items: center;
   }
   &__grow-box {
-    flex: 1 0 $content-width / 3;
+    flex: 1 0 $container-width / 3;
     background: $ecc-blue;
     color: white;
     display: block;
     text-align: center;
-    @media (max-width: $content-width) {
+    @media (max-width: $container-width) {
       margin: 16px;
     }
     &__inner {
@@ -195,7 +195,7 @@ export default {
       opacity: 0.75;
     }
   }
-  $act-content-width: 970px;
+
   &__acts-section {
     background: $acts-red;
     color: white;
@@ -216,7 +216,7 @@ export default {
     margin: 0 auto;
 
     &__side {
-      flex: 1 0 $content-width / 2;
+      flex: 1 1 $container-width / 2;
       margin-bottom: 32px;
       img {
         width: 100%;

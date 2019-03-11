@@ -5,38 +5,46 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: "Elmira Christian Center",
-  siteUrl: "https://elmirachristiancenter.com",
+  siteName: 'Elmira Christian Center',
+  siteUrl: 'https://elmirachristiancenter.com',
   transformers: {
     remark: {
-      externalLinksTarget: "_blank",
-      externalLinksRel: ["nofollow", "noopener", "noreferrer"]
-    }
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+    },
   },
   plugins: [
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "content/sermons/*.md",
-        typeName: "Sermon",
-        route: "sermons/:series/:slug"
-      }
+        path: 'content/sermons/*.md',
+        typeName: 'Sermon',
+        route: 'sermons/:series/:slug',
+      },
     },
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "content/series/*.md",
-        typeName: "Series",
-        route: "sermons/:title"
-      }
+        path: 'content/series/*.md',
+        typeName: 'Series',
+        route: 'sermons/:title',
+      },
     },
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "content/posts/*.md",
-        typeName: "Post",
-        route: "blog/:slug"
-      }
-    }
-  ]
+        path: 'content/posts/*.md',
+        typeName: 'Post',
+        route: 'blog/:slug',
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/pages/*.md',
+        typeName: 'ContentPage',
+        route: ':fileInfo__name',
+      },
+    },
+  ],
 };

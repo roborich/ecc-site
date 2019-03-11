@@ -1,20 +1,10 @@
 <template>
   <Layout>
-    <div class="ecc-content ecc-content__body">
+    <div class="ecc-content ecc-blog-post ecc-responsive-container">
       <h1>{{$page.post.title}}</h1>
-      <!-- <div class="post-info">
-        <fa-icon icon="calendar-day"/>
-        Posted on {{$page.post.date | formatDate}}
-      </div>
-      <div class="post-info">
-        <fa-icon icon="user"/>
-        Posted by {{$page.post.author}}
-      </div>
-      <div class="post-info">
-        <fa-icon icon="archive"/>
-        Categories: {{$page.post.category}}
-      </div>-->
-      <div class="post-info">Posted on {{$page.post.date | formatDate}} by {{$page.post.author}}</div>
+      <div
+        class="ecc-blog-post__info"
+      >Posted on {{$page.post.date | formatDate}} by {{$page.post.author}}</div>
       <g-image :src="$page.post.image"/>
       <div v-html="$page.post.content"/>
       <Tags :tags="$page.post.tags"/>
@@ -48,33 +38,15 @@ export default {
 
 <style lang="scss">
 @import '../assets/scss/library';
-.post-info {
-  display: block;
-  color: #999;
-  font-family: $tisa;
-  font-size: 12px;
-  text-align: center;
-  margin-bottom: 1em;
-}
-.ecc-content__body {
-  h1 {
+.ecc-blog-post {
+  padding-top: 0;
+  &__info {
+    display: block;
+    color: #999;
+    font-family: $tisa;
+    font-size: 12px;
     text-align: center;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  blockquote {
-    margin: 0;
-    padding: 1em 0 1em 2em;
-    border-left: solid 3px $ecc-blue;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: $header-blue;
+    margin-bottom: 1em;
   }
 }
 </style>

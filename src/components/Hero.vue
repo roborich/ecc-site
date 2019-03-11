@@ -1,8 +1,8 @@
 <template>
   <!-- todo: change class name -->
-  <div class="ecc-content-hero" :style="style">
-    <div class="ecc-content-hero__centered">
-      <div class="ecc-content">
+  <div class="ecc-hero" :style="style">
+    <div class="ecc-hero__centered">
+      <div class="ecc-responsive-container">
         <slot/>
       </div>
     </div>
@@ -37,7 +37,7 @@ export default {
             : `url('${this.backgroundImage}')`,
         minHeight: `${this.height}px`,
       };
-      if (this.parallax !== undefined && false) {
+      if (this.parallax !== undefined && this.$mq === 'desktop') {
         // todo only implement on large screens
         css.backgroundPosition = `50% calc(50% + calc(calc(var(--scrollY) - var(--offsetY)) * ${
           this.parallax
@@ -55,8 +55,7 @@ export default {
 <style lang="scss">
 @import '../assets/scss/library';
 
-// todo: change class name
-.ecc-content-hero {
+.ecc-hero {
   box-sizing: border-box;
   display: flex;
 
@@ -65,6 +64,9 @@ export default {
   font-weight: 900;
   font-size: 50px;
 
+  h1 {
+    font-size: 50px;
+  }
   background-color: $ecc-blue;
   background-color: $header-blue;
   background-image: linear-gradient(30deg, rgba(black, 0), rgba(black, 0.8));
@@ -81,6 +83,7 @@ export default {
     position: relative;
     z-index: 1;
     flex: 0 0 auto;
+    padding: $container-gutter 0;
   }
 }
 </style>

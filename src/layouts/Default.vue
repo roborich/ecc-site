@@ -6,11 +6,11 @@
           width="634"
           height="90"
           quality="100"
+          blur="0"
           class="header__logo"
           src="../assets/images/logo.png"
         />
       </g-link>
-      <nav class="nav"></nav>
       <Navigation/>
     </header>
     <slot/>
@@ -64,7 +64,8 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  margin-top: 75px;
+  margin-top: 74px;
+  padding-top: 1px;
 }
 
 .header {

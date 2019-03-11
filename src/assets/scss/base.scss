@@ -1,29 +1,51 @@
 @import './library.scss';
 @import './base/typography.scss';
 
-.ecc-content {
+.ecc-responsive-container {
+  max-width: $container-width; // todo rename
+  padding: 0 $container-gutter;
   margin: 0 auto;
-  max-width: $content-width;
-  padding: 0 $content-gutter;
-  &__body {
-    padding: 32px;
-    line-height: 1.8em;
-    h1,
-    h2,
-    h3 {
-      color: $header-blue;
-    }
-    blockquote {
-      margin: 0;
-      padding: 1em 0 1em 2em;
-      border-left: solid 3px $ecc-blue;
-    }
-    img {
-      max-width: 100%;
+}
+
+.ecc-content {
+  padding: $container-gutter;
+  line-height: 1.8em;
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $header-blue;
+  }
+
+  h3,
+  h4 {
+    font-family: $tisa;
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 1em 0 1em 2em;
+    border-left: solid 3px $ecc-blue;
+  }
+
+  a {
+    color: $link-blue;
+    text-decoration: none;
+    border-bottom: dotted 1px $link-underline-gray;
+    transition: color 0.2s ease, border 0.2s ease;
+    &:hover {
+      color: lighten($link-blue, 10%);
     }
   }
-  &__h1 {
-    color: $ecc-blue;
+
+  img {
+    max-width: 100%;
   }
 }
 

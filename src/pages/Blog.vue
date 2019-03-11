@@ -1,6 +1,8 @@
 <template>
   <Layout>
-    <Hero>Blog</Hero>
+    <Hero>
+      <h1>Blog</h1>
+    </Hero>
     <div class="ecc-content ecc-content__body ecc-blog-grid">
       <div class="blog-tile" v-for="post in $page.allPost.posts" :key="post.node.title">
         <g-link class="blog-tile__image">
@@ -33,13 +35,13 @@ query Posts {
 }
 </page-query>
 <script>
-import { formatDate } from "../lib/filters";
+import { formatDate } from '../lib/filters';
 export default {
-  filters: { formatDate }
+  filters: { formatDate },
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/library";
+@import '../assets/scss/library';
 .blog-tile {
   text-align: center;
 
@@ -122,7 +124,8 @@ export default {
   display: grid;
   grid-gap: 16px;
   grid-template-columns: 1fr 1fr;
-  @media (max-width: $content-width) {
+  @media (max-width: $container-width) {
+    // todo use breakpoint mixin
     grid-template-columns: 1fr;
   }
 }
