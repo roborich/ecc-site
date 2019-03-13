@@ -1,19 +1,23 @@
 <template>
-  <div :class="{'ecc-nav': true, 'ecc-nav--open': isOpen}">
-    <div class="ecc-nav__control" @click="isOpen = true">
+  <div :class="baseClass">
+    <div v-if="!isDesktop" class="ecc-nav__control" @click="isOpen = true">
       <fa-icon icon="bars" size="lg" color="#999"/>
     </div>
-    <div class="ecc-nav__overlay" @click="isOpen = false"></div>
+    <div v-if="!isDesktop" class="ecc-nav__overlay" @click="isOpen = false"></div>
     <div class="ecc-nav__panel">
-      <div v-for="category in navigationItems" :key="category.text">
+      <div
+        :class="{'ecc-nav__category': true, 'ecc-nav__category--with-items': 'items' in category}"
+        v-for="category in navigationItems"
+        :key="category.text"
+      >
         <g-link
           v-if="'link' in category"
-          class="ecc-nav__link-category"
+          class="ecc-nav__category__title"
           :to="category.link"
           :key="category.text"
         >{{category.text}}</g-link>
-        <div v-else class="ecc-nav__link-category">{{category.text}}</div>
-        <div v-if="'items' in category">
+        <div v-else class="ecc-nav__category__title">{{category.text}}</div>
+        <div class="ecc-nav__group" v-if="'items' in category">
           <g-link
             v-for="item in category.items"
             :key="item.text"
@@ -143,12 +147,38 @@ export default {
       ],
     };
   },
+  computed: {
+    isDesktop() {
+      return this.$mq === 'desktop';
+    },
+    baseClass() {
+      return {
+        'ecc-nav': true,
+        'ecc-nav--open': this.isOpen,
+        'ecc-nav--mobile': !this.isDesktop,
+        'ecc-nav--desktop': this.isDesktop,
+      };
+    },
+  },
 };
 </script>
 <style lang="scss">
 @import '../assets/scss/library';
-
-.ecc-nav {
+$header-height: 75px;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes line-grow {
+  from {
+    line-height: 0;
+  }
+}
+.ecc-nav--mobile .ecc-nav {
   &__panel {
     position: fixed;
     top: 0;
@@ -175,16 +205,8 @@ export default {
     transition: opacity 0.2s ease;
     opacity: 0;
   }
-  &--open &__overlay {
-    display: block;
-    opacity: 1;
-  }
-  &--open &__panel {
-    transform: translateX(0);
-    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
-      0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
-  }
-  &__link-category {
+
+  &__category__title {
     // margin-left: 20px;
     text-transform: uppercase;
     text-decoration: none;
@@ -199,6 +221,7 @@ export default {
     color: #999;
     display: block;
     line-height: 1.5;
+
     font-size: 14px;
     padding: 0 32px;
     background-color: rgba($gray, 0);
@@ -206,6 +229,98 @@ export default {
     &:hover {
       background-color: rgba($gray, 0.1);
     }
+  }
+}
+.ecc-nav--open .ecc-nav__overlay {
+  display: block;
+  opacity: 1;
+}
+.ecc-nav--open .ecc-nav__panel {
+  transform: translateX(0);
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.ecc-nav--desktop .ecc-nav {
+  &__panel {
+    display: flex;
+  }
+  &__category {
+    padding: 0 16px;
+    // background: red;
+    line-height: $header-height;
+    position: relative;
+    &--with-items:hover:after {
+      content: '';
+      position: absolute;
+      top: $header-height - 5px;
+      width: 0;
+      height: 0;
+      margin-left: -10px;
+      left: 50%;
+      animation: fade-in 0.5s ease;
+      border: solid 10px transparent;
+      border-bottom-color: white;
+    }
+    &--with-items:hover:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: $header-height;
+      height: 15px;
+    }
+  }
+  &__category__title {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #5e5e5e;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  $corner-radius: 3px;
+  &__group {
+    display: none;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+    top: $header-height + 15px;
+    animation: fade-in 0.5s ease;
+    border-radius: $corner-radius;
+    transition: box-shadow 0.5s ease;
+    box-shadow: 0 0 0 0 rgba(black, 0);
+
+    a {
+      text-decoration: none;
+      color: #5e5e5e;
+      letter-spacing: 1px;
+      font-size: 18px;
+      line-height: 2.5;
+      display: block;
+      padding: 0 16px;
+      white-space: nowrap;
+      background-color: white;
+      background-image: linear-gradient(white, white);
+      transition: background-image 1.2s ease;
+      animation: line-grow 0.2s ease;
+      overflow: hidden;
+      border-bottom: solid 1px #eee;
+      &:hover {
+        background-image: linear-gradient(white, #f7f7f7);
+      }
+      &:first-child {
+        border-radius: $corner-radius $corner-radius 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 $corner-radius $corner-radius;
+      }
+    }
+  }
+  &__category:hover .ecc-nav__group {
+    display: block;
+    box-shadow: elevation(4);
   }
 }
 </style>

@@ -3,7 +3,7 @@
     <Hero>
       <h1>Blog</h1>
     </Hero>
-    <div class="ecc-content ecc-content__body ecc-blog-grid">
+    <div class="ecc-responsive-container ecc-blog-grid">
       <div class="blog-tile" v-for="post in $page.allPost.posts" :key="post.node.title">
         <g-link class="blog-tile__image">
           <img :src="post.node.image">
@@ -121,6 +121,7 @@ export default {
 }
 
 .ecc-blog-grid {
+  margin-top: 16px;
   display: grid;
   grid-gap: 16px;
   grid-template-columns: 1fr 1fr;

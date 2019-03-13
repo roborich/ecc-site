@@ -5,6 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
+  // css: {
+  //   loaderOptions: {
+  //     scss: {},
+  //   },
+  // },
   siteName: 'Elmira Christian Center',
   siteUrl: 'https://elmirachristiancenter.com',
   transformers: {

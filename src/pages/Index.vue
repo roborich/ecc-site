@@ -80,7 +80,7 @@
 import Hero from '../components/Hero';
 export default {
   metaInfo: {
-    title: 'Hello, world!',
+    title: 'Welcome',    
   },
   components: { Hero },
 };

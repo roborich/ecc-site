@@ -74,15 +74,16 @@ body {
   align-items: center;
   line-height: 1;
   height: 75px;
-  padding: 16px;
+  padding: 0 16px;
   box-sizing: border-box;
   position: fixed;
   z-index: 4;
   width: 100%;
   top: 0;
   background-color: white;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  //box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  //  0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: elevation(2);
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
   &__logo {
