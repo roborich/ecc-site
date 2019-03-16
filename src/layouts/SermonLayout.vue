@@ -2,7 +2,7 @@
   <Layout>
     <Hero></Hero>
     <div class="ecc-content">
-      </slot>
+      <slot/>
     </div>
   </Layout>
 </template>

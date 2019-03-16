@@ -178,6 +178,7 @@ $header-height: 75px;
     line-height: 0;
   }
 }
+// todo put media query here instead of using the mobile/desktop classes.
 .ecc-nav--mobile .ecc-nav {
   &__panel {
     position: fixed;
@@ -321,6 +322,10 @@ $header-height: 75px;
   &__category:hover .ecc-nav__group {
     display: block;
     box-shadow: elevation(4);
+  }
+  &__category:last-child .ecc-nav__group {
+    left: auto;
+    right: -100%;
   }
 }
 </style>
