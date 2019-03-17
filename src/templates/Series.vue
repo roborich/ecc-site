@@ -3,7 +3,7 @@
     <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15">Sermons</Hero>
 
     <div class="ecc-responsive-container">
-      <h1 class="ecc-content__h1">{{ $page.series.title }}</h1>
+      <h1 class="ecc-heading">{{ $page.series.title }}</h1>
       <div v-for="sermon of $page.sermon.edges" :key="sermon.node.title" class="sermon">
         <g-link class="sermon-title" :to="sermon.node.path">
           {{sermon.node.title}}
@@ -13,9 +13,9 @@
           </button>
         </g-link>
         <div class="sermon-details">
-          <span>Delivered on</span>
-          <span>{{ sermon.node.date | formatDate }}</span>
-          <span>by Pastor</span>
+          <span>Delivered on&nbsp;</span>
+          <span>{{ sermon.node.date | formatDate }}&nbsp;</span>
+          <span>by Pastor&nbsp;</span>
           <span>{{ sermon.node.speaker }}</span>
         </div>
         <p>{{ sermon.node.content | exerpt}}</p>

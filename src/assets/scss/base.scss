@@ -6,7 +6,15 @@
   padding: 0 $container-gutter;
   margin: 0 auto;
 }
-
+.ecc-heading {
+  color: $header-blue;
+}
+.ecc-sub-heading {
+  color: $header-blue;
+  font-family: $tisa;
+  font-style: italic;
+  font-weight: normal;
+}
 .ecc-content {
   padding: $container-gutter;
   line-height: 1.8em;
@@ -14,14 +22,16 @@
   h2,
   h3,
   h4 {
-    color: $header-blue;
+    // color: $header-blue;
+    @extend .ecc-heading;
   }
 
   h3,
   h4 {
-    font-family: $tisa;
-    font-style: italic;
-    font-weight: normal;
+    @extend .ecc-sub-heading;
+    // font-family: $tisa;
+    // font-style: italic;
+    // font-weight: normal;
   }
 
   h3 {
