@@ -3,7 +3,7 @@ $min-portrait-tablet-width: $max-phone-width + 1px;
 $min-landscape-tablet-width: 900px;
 $min-desktop-width: 1200px;
 
-@mixin for-phone-ohly {
+@mixin for-phone-only {
   @media (max-width: $max-phone-width) {
     @content;
   }

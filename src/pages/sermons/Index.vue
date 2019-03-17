@@ -65,6 +65,9 @@ export default {
   grid-template-columns: 2fr 1fr;
   grid-gap: 32px;
   margin-bottom: 32px;
+  @include for-phone-only() {
+    grid-template-columns: 1fr;
+  }
 
   ul {
     list-style: none;
