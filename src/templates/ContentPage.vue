@@ -18,7 +18,7 @@ query ContentPage ($path: String!) {
 <script>
 export default {
   metaInfo: {
-    title: this.$page.contentPage.title,
+    // title: this.$page.contentPage.title,
   },
 };
 </script>
