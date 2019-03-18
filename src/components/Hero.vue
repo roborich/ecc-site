@@ -2,7 +2,7 @@
   <!-- todo: change class name -->
   <div class="ecc-hero" :style="style">
     <div class="ecc-hero__centered">
-      <div class="ecc-responsive-container">
+      <div :class="containerClass">
         <slot/>
       </div>
     </div>
@@ -20,6 +20,10 @@ export default {
     },
     parallax: {
       type: Number,
+    },
+    wide: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -44,6 +48,9 @@ export default {
         }))`;
       }
       return css;
+    },
+    containerClass() {
+      return this.wide ? 'ecc-wide-container' : 'ecc-container';
     },
   },
   mounted() {

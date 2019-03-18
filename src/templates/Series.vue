@@ -2,7 +2,7 @@
   <Layout>
     <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15">Sermons</Hero>
 
-    <div class="ecc-responsive-container">
+    <div class="ecc-container">
       <h1 class="ecc-heading">{{ $page.series.title }}</h1>
       <div v-for="sermon of $page.sermon.edges" :key="sermon.node.title" class="sermon">
         <g-link class="sermon-title" :to="sermon.node.path">

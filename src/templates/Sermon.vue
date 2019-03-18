@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15">Sermons</Hero>
-    <div class="ecc-content ecc-responsive-container">
+    <div class="ecc-content ecc-container">
       <h1 class="ecc-content__h1">
         {{$page.sermon.title}}
         <span>{{$page.sermon.scripture}}</span>

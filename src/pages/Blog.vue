@@ -3,7 +3,7 @@
     <Hero>
       <h1>Blog</h1>
     </Hero>
-    <div class="ecc-responsive-container ecc-blog-grid">
+    <div class="ecc-container ecc-blog-grid">
       <div class="blog-tile" v-for="post in $page.allPost.posts" :key="post.node.title">
         <g-link class="blog-tile__image">
           <img :src="post.node.image">

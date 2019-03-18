@@ -3,7 +3,7 @@
     <Hero :background-image="$page.contentPage.image" parallax="0.1">
       <h1>{{$page.contentPage.title}}</h1>
     </Hero>
-    <div class="ecc-content ecc-responsive-container" v-html="$page.contentPage.content"></div>
+    <div class="ecc-content ecc-container" v-html="$page.contentPage.content"></div>
   </Layout>
 </template>
 <page-query>

@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15">Sermons</Hero>
-    <div class="sermon ecc-responsive-container">
+    <Hero backgroundImage="/images/sermons.jpg" :parallax="0.15" wide>Sermons</Hero>
+    <div class="sermon ecc-wide-container">
       <div class="sermon__series">
         <h2 class="ecc-heading">Sermon Series</h2>
 
@@ -23,7 +23,15 @@
         <h2 class="ecc-heading">Recent Sermons</h2>
         <ul>
           <li v-for="sermon of $page.allSermon.edges" :key="sermon.node.title">
-            <g-link :to="sermon.node.path">{{ sermon.node.title}}</g-link>
+            <g-link :to="sermon.node.path">
+              <div class="sermon__title">
+                <span>{{sermon.node.scripture}}</span>
+                : {{ sermon.node.title}}
+              </div>
+              <div
+                class="sermon__info"
+              >{{ sermon.node.date | formatDate}} by {{sermon.node.speaker}}</div>
+            </g-link>
           </li>
         </ul>
       </div>
@@ -46,15 +54,20 @@ query Series {
         node {
           title
           path
+          date
+          speaker
+          scripture
         }
       }
     }
 }
 </page-query>
 <script>
+import { formatDate } from '../../lib/filters.js';
 import Hero from '../../components/Hero.vue';
 export default {
   name: 'SeriesIndex',
+  filters: { formatDate },
   components: { Hero },
 };
 </script>
@@ -77,8 +90,6 @@ export default {
       padding: 8px 0;
       border-bottom: solid 1px #eee;
       a {
-        font-size: 18px;
-        color: $gray;
         font-family: $tisa;
         text-decoration: none;
       }
@@ -110,6 +121,17 @@ export default {
         background-position: 50% 50%;
       }
     }
+  }
+  &__title {
+    span {
+      font-weight: bold;
+    }
+    font-size: 18px;
+    color: $paragraph-color;
+  }
+  &__info {
+    font-size: 14px;
+    color: $gray;
   }
 }
 </style>

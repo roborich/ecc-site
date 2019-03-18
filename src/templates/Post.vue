@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="ecc-content ecc-blog-post ecc-responsive-container">
+    <div class="ecc-content ecc-blog-post ecc-container">
       <h1>{{$page.post.title}}</h1>
       <div
         class="ecc-blog-post__info"
