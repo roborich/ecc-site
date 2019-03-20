@@ -9,7 +9,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
     "@material/elevation": "^1.0.0",
-    "gridsome": "^0.5.3"
+    "gridsome": "^0.5.5"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",

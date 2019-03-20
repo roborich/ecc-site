@@ -1,34 +1,27 @@
 <template>
-  <Layout>
-    <Hero>
-      <h1>Blog</h1>
-    </Hero>
-    <div class="ecc-container ecc-blog-grid">
-      <BlogTile v-for="post in $page.allPost.posts" :key="post.node.title" :post="post"/>
+  <div class="blog-tile">
+    <g-link class="blog-tile__image">
+      <img :src="post.node.image">
+    </g-link>
+    <div class="blog-tile__body">
+      <span class="blog-tile__category">{{post.node.category}}</span>
+      <g-link :to="post.node.path" class="blog-tile__title">{{post.node.title}}</g-link>
+      <div class="blog-tile__summary">{{post.node.summary}}</div>
+      <div class="blog-tile__date">Posted on {{ post.node.date | formatDate}}</div>
     </div>
-  </Layout>
+  </div>
 </template>
-<page-query>
-query Posts {
-  allPost(sortBy: "date") {
-    posts: edges {
-      node {
-        title
-        image
-        summary
-        date
-        path
-        category
-      }
-    }
-  }
-}
-</page-query>
 <script>
-import BlogTile from '../components/BlogTile';
 import { formatDate } from '../lib/filters';
+
 export default {
-  components: { BlogTile },
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+  filters: { formatDate },
 };
 </script>
 <style lang="scss">
@@ -108,17 +101,6 @@ export default {
   }
   &:hover &__body {
     box-shadow: 0 1px 2px rgba(black, 0.25);
-  }
-}
-
-.ecc-blog-grid {
-  margin-top: 16px;
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 1fr 1fr;
-  @media (max-width: $container-width) {
-    // todo use breakpoint mixin
-    grid-template-columns: 1fr;
   }
 }
 </style>

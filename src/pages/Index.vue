@@ -73,16 +73,59 @@
       <g-link to="/about" class="ecc-index__white-border-button">Our Liturgy</g-link>
       <g-link to="/about" class="ecc-index__white-border-button">Sunday Classes</g-link>
     </Hero>
+    <div class="ecc-index__blog-section">
+      <h2 class="ecc-title">From The Blog</h2>
+      <div class="ecc-index__blog-section__grid">
+        <BlogTile v-for="post in $page.allPost.posts" :key="post.node.title" :post="post"/>
+      </div>
+    </div>
+    <div class="ecc-index__section ecc-index__additional">
+      <div class="ecc-index__flex">
+        <div class="ecc-index__half">
+          <h2 class="ecc-title">Newsletter</h2>
+          <p>
+            Our weekly email newsletter helps us communicate important information.
+            Stay connected with what God is doing in and through our church!
+          </p>
+          <button>Sign Up</button>
+        </div>
+        <div class="ecc-index__half">
+          <h2 class="ecc-title">Resources</h2>
+          <p>
+            We provide resources to help you know read the Bible,
+            grow in your understanding and practice of the Christian faith, and share the gospel.
+          </p>
+          <button>View Resources</button>
+        </div>
+      </div>
+    </div>
   </Layout>
 </template>
-
+<page-query>
+query Posts {
+  allPost(sortBy: "date", perPage: 3) {
+    posts: edges {
+      node {
+        title
+        image
+        summary
+        date
+        path
+        category
+      }
+    }
+  }
+}
+</page-query>
 <script>
 import Hero from '../components/Hero';
+import BlogTile from '../components/BlogTile';
+
 export default {
   metaInfo: {
-    title: 'Welcome',    
+    title: 'Welcome',
   },
-  components: { Hero },
+  components: { Hero, BlogTile },
 };
 </script>
 
@@ -231,6 +274,43 @@ export default {
       font-size: 16px; // todo these might not be needed if I take away hero font sizes.
       color: white;
     }
+  }
+  &__blog-section {
+    padding: 96px 32px 64px;
+    h2 {
+      text-align: center;
+    }
+
+    &__grid {
+      display: grid;
+      max-width: $container-width;
+      margin: 0 auto;
+      grid-template-columns: 1fr;
+      grid-gap: 16px;
+      @include for-tablet-up() {
+        grid-template-column: 1fr 1fr;
+      }
+      @include for-desktop() {
+        max-width: $wide-container-width;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+  &__section {
+    padding: 96px 32px 64px;
+  }
+  &__flex {
+    // flex container
+    display: flex;
+    margin: auto;
+    max-width: $wide-container-width;
+  }
+  &__half {
+    flex: 1 0 $wide-container-width / 2;
+    text-align: center;
+  }
+  &__additional {
+    background: $light-gray;
   }
 }
 
