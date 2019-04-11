@@ -3,14 +3,23 @@
     <Hero>
       <h1>Blog</h1>
     </Hero>
-    <div class="ecc-container ecc-blog-grid">
-      <BlogTile v-for="post in posts" :key="post.title" :post="post"/>
+    <div class="ecc-container">
+      <div class="ecc-blog-grid">
+        <BlogTile v-for="post in posts" :key="post.title" :post="post"/>
+      </div>
+      <div class="ecc-pager">
+        <Pager :info="$page.allWordPressPost.pageInfo"/>
+      </div>
     </div>
   </Layout>
 </template>
 <page-query>
-query Posts {
-  allWordPressPost(sortBy: "date") {
+query Posts ($page: Int) {
+  allWordPressPost(sortBy: "date" perPage: 6, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         title
@@ -30,19 +39,38 @@ query Posts {
 }
 </page-query>
 <script>
+import { Pager } from 'gridsome';
 import BlogTile from '../components/BlogTile';
 import { formatDate } from '../lib/filters';
 export default {
   computed: {
-    posts(){
-      return this.$page.allWordPressPost.edges.map(({node}) => node);
-    }
+    posts() {
+      return this.$page.allWordPressPost.edges.map(({ node }) => node);
+    },
   },
-  components: { BlogTile },
+  components: { Pager, BlogTile },
 };
 </script>
 <style lang="scss">
 @import '../assets/scss/library';
+.ecc-pager {
+  text-align: center;
+  margin: 32px 0;
+  font-size: 20px;
+  a {
+    padding: 4px;
+    color: $gray;
+    text-decoration: none;
+    &.active--exact.active {
+      color: $paragraph-color;
+    }
+
+    &:hover {
+      color: $link-blue;
+      text-decoration: underline;
+    }
+  }
+}
 .blog-tile {
   text-align: center;
 
