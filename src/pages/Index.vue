@@ -6,13 +6,16 @@
           <div>Making Disciples.</div>
           <div>Changing our Community.</div>
         </h1>
-        <g-link to="/about" class="ecc-index__white-border-button">New Here?
+        <g-link to="/about" class="ecc-index__white-border-button">
+          New Here?
           <fa-icon icon="long-arrow-alt-right"/>
         </g-link>
-        <g-link to="/the-gospel" class="ecc-index__white-border-button">The Gospel
+        <g-link to="/the-gospel" class="ecc-index__white-border-button">
+          The Gospel
           <fa-icon icon="long-arrow-alt-right"/>
         </g-link>
-        <g-link to="/about" class="ecc-index__white-border-button">What We Believe
+        <g-link to="/about" class="ecc-index__white-border-button">
+          What We Believe
           <fa-icon icon="long-arrow-alt-right"/>
         </g-link>
       </div>
@@ -76,7 +79,7 @@
     <div class="ecc-index__blog-section">
       <h2 class="ecc-title">From The Blog</h2>
       <div class="ecc-index__blog-section__grid">
-        <BlogTile v-for="post in $page.allPost.posts" :key="post.node.title" :post="post"/>
+        <BlogTile v-for="post in posts" :key="post.title" :post="post"/>
       </div>
     </div>
     <div class="ecc-index__section ecc-index__additional">
@@ -103,15 +106,20 @@
 </template>
 <page-query>
 query Posts {
-  allPost(sortBy: "date", perPage: 3) {
-    posts: edges {
+  allWordPressPost(sortBy: "date", perPage: 3) {
+    edges {
       node {
         title
-        image
-        summary
+        featuredMedia {
+          sourceUrl
+          altText
+        }
+        excerpt
         date
         path
-        category
+        categories {
+          title
+        }
       }
     }
   }
@@ -124,6 +132,11 @@ import BlogTile from '../components/BlogTile';
 export default {
   metaInfo: {
     title: 'Welcome',
+  },
+  computed: {
+    posts() {
+      return this.$page.allWordPressPost.edges.map(({ node }) => node);
+    },
   },
   components: { Hero, BlogTile },
 };

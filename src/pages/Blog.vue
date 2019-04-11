@@ -4,21 +4,26 @@
       <h1>Blog</h1>
     </Hero>
     <div class="ecc-container ecc-blog-grid">
-      <BlogTile v-for="post in $page.allPost.posts" :key="post.node.title" :post="post"/>
+      <BlogTile v-for="post in posts" :key="post.title" :post="post"/>
     </div>
   </Layout>
 </template>
 <page-query>
 query Posts {
-  allPost(sortBy: "date") {
-    posts: edges {
+  allWordPressPost(sortBy: "date") {
+    edges {
       node {
         title
-        image
-        summary
+        featuredMedia {
+          sourceUrl
+          altText
+        }
+        excerpt
         date
         path
-        category
+        categories {
+          title
+        }
       }
     }
   }
@@ -28,6 +33,11 @@ query Posts {
 import BlogTile from '../components/BlogTile';
 import { formatDate } from '../lib/filters';
 export default {
+  computed: {
+    posts(){
+      return this.$page.allWordPressPost.edges.map(({node}) => node);
+    }
+  },
   components: { BlogTile },
 };
 </script>

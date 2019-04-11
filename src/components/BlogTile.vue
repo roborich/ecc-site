@@ -1,24 +1,34 @@
 <template>
   <div class="blog-tile">
     <g-link class="blog-tile__image">
-      <img :src="post.node.image">
+      <g-image
+        :src="post.featuredMedia.sourceUrl"
+        :alt="post.featuredMedia.altText"
+        quality="10"
+        width="4"
+      />
     </g-link>
     <div class="blog-tile__body">
-      <span class="blog-tile__category">{{post.node.category}}</span>
-      <g-link :to="post.node.path" class="blog-tile__title">{{post.node.title}}</g-link>
-      <div class="blog-tile__summary">{{post.node.summary}}</div>
-      <div class="blog-tile__date">Posted on {{ post.node.date | formatDate}}</div>
+      <span class="blog-tile__category">{{post.categories[0].title}}</span>
+      <g-link :to="post.path" class="blog-tile__title">{{title}}</g-link>
+      <div class="blog-tile__summary" v-html="post.excerpt"/>
+      <div class="blog-tile__date">Posted on {{ post.date | formatDate}}</div>
     </div>
   </div>
 </template>
 <script>
 import { formatDate } from '../lib/filters';
-
+import he from 'he';
 export default {
   props: {
     post: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    title() {
+      return he.decode(this.post.title);
     },
   },
   filters: { formatDate },

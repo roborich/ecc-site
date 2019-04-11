@@ -20,6 +20,20 @@ module.exports = {
   },
   plugins: [
     {
+      use: '@gridsome/source-wordpress',
+      options: {
+        baseUrl: 'https://elmirachristiancenter.org/',
+        apiBase: 'wp-json',
+        typeName: 'WordPress',
+        perPage: 100,
+        concurrent: 10,
+        routes: {
+          post: '/:year/:month/:day/:slug',
+          post_tag: '/tag/:slug',
+        },
+      },
+    },
+    {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'content/sermons/*.md',
